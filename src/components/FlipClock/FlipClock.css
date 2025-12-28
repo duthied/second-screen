@@ -11,9 +11,9 @@
 }
 
 .flip-clock-separator {
-  font-size: 240px;
+  font-size: 200px;
   font-weight: bold;
-  color: #fff;
+  color: #acaaaa;
   margin: 0 20px;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   line-height: 320px;
