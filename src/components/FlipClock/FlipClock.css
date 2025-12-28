@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  padding: 2vh;
+  box-sizing: border-box;
 }
 
 .flip-clock {
@@ -19,13 +21,15 @@
 }
 
 .flip-clock-separator {
-  font-size: 150px;
+  font-size: min(150px, 10vw);
   font-weight: bold;
   color: #acaaaa;
-  margin: 0 15px;
+  margin: 0 1vw;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-  line-height: 240px;
+  line-height: 1;
   font-family: 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
 }
 
 .flip-clock-date {
