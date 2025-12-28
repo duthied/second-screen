@@ -2,20 +2,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .flip-clock-group {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
 .flip-clock-separator {
-  font-size: 120px;
+  font-size: 240px;
   font-weight: bold;
   color: #fff;
-  margin: 0 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  line-height: 160px;
+  margin: 0 20px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  line-height: 320px;
   font-family: 'Arial', sans-serif;
 }

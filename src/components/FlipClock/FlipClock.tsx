@@ -6,7 +6,7 @@ import './FlipClock.css';
 
 const FlipClock: React.FC = () => {
   const time = useTime();
-  const { hours, minutes, seconds } = formatTime(time);
+  const { hours, minutes } = formatTime(time);
 
   return (
     <div className="flip-clock">
@@ -18,11 +18,6 @@ const FlipClock: React.FC = () => {
       <div className="flip-clock-group">
         <FlipDigit value={minutes[0]} />
         <FlipDigit value={minutes[1]} />
-      </div>
-      <div className="flip-clock-separator">:</div>
-      <div className="flip-clock-group">
-        <FlipDigit value={seconds[0]} />
-        <FlipDigit value={seconds[1]} />
       </div>
     </div>
   );
