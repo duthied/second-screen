@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from './components/Layout/Grid';
 import FlipClock from './components/FlipClock/FlipClock';
 import Weather from './components/Weather/Weather';
-import Placeholder from './components/Placeholder/Placeholder';
+import Quote from './components/Quote/Quote';
 import './App.css';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Grid
         clock={<FlipClock />}
         weather={<Weather />}
-        placeholder={<Placeholder />}
+        placeholder={<Quote />}
       />
     </div>
   );
