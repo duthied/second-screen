@@ -1,46 +1,169 @@
-# Getting Started with Create React App
+# Second Screen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A minimalist React-based web application designed to run on an iPad as a second screen display. Features a large flip-style clock, real-time weather with 3-day forecast, and cycling inspirational quotes.
 
-## Available Scripts
+![Layout: 60% clock at top, 40% bottom split between weather (left) and quotes (right)]
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Flip Clock** - Large animated clock (HH:MM format) with realistic flip card effect
+- **Weather Display** - Current conditions and 3-day forecast for Guelph, ON
+- **Inspirational Quotes** - 10 rotating quotes from stoics and modern thinkers
+- **iPad Optimized** - Full-screen, no scrolling, touch-optimized interface
+- **Auto-Refresh** - Weather and quotes update every 30 minutes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Quick Start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-### `npm test`
+### 2. Configure Environment
+Create a `.env.local` file with your OpenWeatherMap API key:
+```env
+REACT_APP_WEATHER_API_KEY=your_api_key_here
+REACT_APP_LATITUDE=43.5448
+REACT_APP_LONGITUDE=-80.2482
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get an API key:
+1. Sign up at [OpenWeatherMap](https://openweathermap.org/api)
+2. Get a free API key (1000 calls/day)
 
-### `npm run build`
+### 3. Run Development Server
+```bash
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) to view in browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4. Build for Production
+```bash
+npm run build
+```
+Deploy the `build` folder to your hosting service.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## iPad Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Deploy the app to a web hosting service (Netlify, Vercel, GitHub Pages, etc.)
+2. Open the URL in Safari on your iPad
+3. Tap the Share button (box with arrow)
+4. Select "Add to Home Screen"
+5. Open from home screen for full-screen experience
 
-### `npm run eject`
+The app will run like a native application with no browser chrome.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Project Structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src/
+├── components/
+│   ├── FlipClock/      # Animated flip clock (HH:MM)
+│   ├── Weather/        # Current weather + 3-day forecast
+│   ├── Quote/          # Cycling quote display
+│   └── Layout/         # Grid layout (60/40 split)
+├── hooks/
+│   ├── useInterval.ts  # Reusable interval hook
+│   ├── useTime.ts      # Clock updates (1 second)
+│   └── useWeather.ts   # Weather fetch (30 min refresh)
+├── services/
+│   └── weatherApi.ts   # OpenWeatherMap integration
+└── utils/
+    └── formatTime.ts   # Time formatting
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Configuration
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Changing Location
+Update the coordinates in `.env.local`:
+```env
+REACT_APP_LATITUDE=your_latitude
+REACT_APP_LONGITUDE=your_longitude
+```
 
-## Learn More
+### Adding Quotes
+Edit `src/components/Quote/Quote.tsx` and add to the `quotes` array:
+```typescript
+{
+  text: "Your quote here",
+  author: "Author Name"
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Adjusting Layout
+Edit `src/components/Layout/Grid.css`:
+```css
+.grid-container {
+  grid-template-rows: 60% 40%;  /* Top/Bottom split */
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Update Intervals
+- Clock: 1 second (in `useTime.ts`)
+- Weather: 30 minutes (in `useWeather.ts`)
+- Quotes: 30 minutes (in `Quote.tsx`)
+
+## Tech Stack
+
+- **React 18** with TypeScript
+- **Create React App** for build tooling
+- **OpenWeatherMap API** for weather data
+- **CSS Grid** for layout
+- **CSS 3D Transforms** for flip animations
+- **React Hooks** for state management (no external libraries)
+
+## Design Features
+
+### Flip Clock
+- Large 240px × 320px digits
+- Realistic 3D flip animation (600ms)
+- Soft gray text on dark gradient background
+- Updates smoothly every second
+
+### Weather
+- Current temperature and conditions
+- 3-day forecast with emoji icons
+- Auto-refresh every 30 minutes
+- Minimalist card design
+
+### Quotes
+- 10 inspirational and stoic quotes
+- Smooth fade transitions (500ms)
+- Rounded card styling
+- Cycles every 30 minutes
+
+## Browser Compatibility
+
+- **Primary:** Safari on iPad
+- **Supported:** Modern browsers with CSS Grid and 3D Transform support
+- **Optimized for:** Touch interfaces, full-screen displays
+
+## Development
+
+See [claude.md](./claude.md) for detailed development documentation, architecture decisions, and implementation notes.
+
+### Available Scripts
+
+- `npm start` - Run development server
+- `npm run build` - Build for production
+- `npm test` - Run test suite
+- `npm run eject` - Eject from Create React App (one-way operation)
+
+## Deployment
+
+### Recommended Hosts
+- **Netlify** - Free, automatic deployments from Git
+- **Vercel** - Free, optimized for React
+- **GitHub Pages** - Free, simple setup
+
+All support automatic deployments and free SSL certificates.
+
+## License
+
+Personal project - feel free to use and modify for your own second screen setup.
+
+## Acknowledgments
+
+Built with assistance from Claude Code.
+Weather data provided by OpenWeatherMap.
+Quotes from stoic philosophers and modern thinkers.
