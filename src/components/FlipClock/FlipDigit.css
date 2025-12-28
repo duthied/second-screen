@@ -1,9 +1,9 @@
 .flip-digit-container {
   position: relative;
-  width: 240px;
-  height: 320px;
+  width: 180px;
+  height: 240px;
   perspective: 2000px;
-  margin: 0 10px;
+  margin: 0 8px;
 }
 
 .flip-digit {
@@ -46,10 +46,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 200px;
+  font-size: 150px;
   font-weight: bold;
   color: #cbcaca;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
   font-family: 'Arial', sans-serif;
 }
 
