@@ -2,6 +2,21 @@ import React from 'react';
 import { useWeather } from '../../hooks/useWeather';
 import './Weather.css';
 
+const getWeatherIconSVG = (iconCode: string): string => {
+  const iconMap: { [key: string]: string } = {
+    '01d': '☀️', '01n': '🌙',
+    '02d': '⛅', '02n': '☁️',
+    '03d': '☁️', '03n': '☁️',
+    '04d': '☁️', '04n': '☁️',
+    '09d': '🌧️', '09n': '🌧️',
+    '10d': '🌦️', '10n': '🌧️',
+    '11d': '⛈️', '11n': '⛈️',
+    '13d': '❄️', '13n': '❄️',
+    '50d': '🌫️', '50n': '🌫️',
+  };
+  return iconMap[iconCode] || '☁️';
+};
+
 const Weather: React.FC = () => {
   const { data, loading, error } = useWeather();
 
@@ -28,20 +43,27 @@ const Weather: React.FC = () => {
     return null;
   }
 
-  const temp = Math.round(data.main.temp);
-  const description = data.weather[0]?.description || 'N/A';
-  const icon = data.weather[0]?.icon || '01d';
-  const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+  const temp = Math.round(data.current.main.temp);
+  const description = data.current.weather[0]?.description || 'N/A';
 
   return (
     <div className="weather">
-      <div className="weather-icon">
-        <img src={iconUrl} alt={description} />
-      </div>
-      <div className="weather-info">
-        <div className="weather-temp">{temp}°C</div>
+      <div className="weather-current">
+        <div className="weather-temp-large">{temp}°C</div>
         <div className="weather-description">{description}</div>
-        <div className="weather-location">{data.name}</div>
+        <div className="weather-location">{data.current.name}</div>
+      </div>
+
+      <div className="weather-divider"></div>
+
+      <div className="weather-forecast">
+        {data.forecast.map((day) => (
+          <div key={day.date} className="forecast-day">
+            <div className="forecast-day-name">{day.dayName}</div>
+            <div className="forecast-icon">{getWeatherIconSVG(day.icon)}</div>
+            <div className="forecast-temp">{day.temp}°</div>
+          </div>
+        ))}
       </div>
     </div>
   );
