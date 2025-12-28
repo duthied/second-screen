@@ -1,3 +1,11 @@
+.flip-clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .flip-clock {
   display: flex;
   align-items: center;
@@ -18,4 +26,12 @@
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   line-height: 320px;
   font-family: 'Arial', sans-serif;
+}
+
+.flip-clock-date {
+  font-size: 20px;
+  color: #acaaaa;
+  margin-top: 20px;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
 }
