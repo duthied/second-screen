@@ -2,8 +2,8 @@
   display: grid;
   grid-template-rows: 60% 40%;
   width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
+  height: 100%;
+  min-height: 100%;
   overflow: hidden;
 }
 
