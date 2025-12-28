@@ -149,6 +149,71 @@ See [claude.md](./claude.md) for detailed development documentation, architectur
 - `npm test` - Run test suite
 - `npm run eject` - Eject from Create React App (one-way operation)
 
+## Docker Deployment
+
+The app is fully dockerized for easy deployment.
+
+### Quick Start with Docker Compose
+
+```bash
+# Build and run
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop
+docker-compose down
+```
+
+The app will be available at `http://localhost:3000`
+
+### Manual Docker Build
+
+```bash
+# Build the image
+docker build -t second-screen .
+
+# Run the container
+docker run -d -p 3000:80 --name second-screen second-screen
+
+# View logs
+docker logs -f second-screen
+
+# Stop and remove
+docker stop second-screen
+docker rm second-screen
+```
+
+### Docker Features
+
+- **Multi-stage build** - Optimized image size (~25MB)
+- **Nginx serving** - Fast static file serving
+- **Health checks** - Container health monitoring
+- **Gzip compression** - Reduced bandwidth usage
+- **Cache headers** - Optimized asset caching
+- **Security headers** - Basic security hardening
+
+### Environment Variables
+
+Create a `.env.local` file before building:
+```env
+REACT_APP_WEATHER_API_KEY=your_api_key
+REACT_APP_LATITUDE=43.5448
+REACT_APP_LONGITUDE=-80.2482
+```
+
+The build process will include these values in the production build.
+
+### Production Deployment
+
+Deploy to any Docker-compatible platform:
+- **AWS ECS/Fargate** - Scalable container hosting
+- **Google Cloud Run** - Serverless containers
+- **Azure Container Instances** - Simple container deployment
+- **DigitalOcean App Platform** - Platform-as-a-Service
+- **Self-hosted** - Any server with Docker installed
+
 ## Deployment
 
 ### Recommended Hosts

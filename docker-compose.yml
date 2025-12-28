@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  second-screen:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: second-screen:latest
+    container_name: second-screen
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "com.second-screen.description=Second Screen iPad Display"
+      - "com.second-screen.version=1.0"
