@@ -13,6 +13,16 @@ RUN npm ci --only=production
 # Copy source code
 COPY . .
 
+# Accept build arguments for environment variables
+ARG REACT_APP_WEATHER_API_KEY
+ARG REACT_APP_LATITUDE
+ARG REACT_APP_LONGITUDE
+
+# Set environment variables for the build
+ENV REACT_APP_WEATHER_API_KEY=$REACT_APP_WEATHER_API_KEY
+ENV REACT_APP_LATITUDE=$REACT_APP_LATITUDE
+ENV REACT_APP_LONGITUDE=$REACT_APP_LONGITUDE
+
 # Build the application
 RUN npm run build
 

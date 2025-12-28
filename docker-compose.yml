@@ -4,6 +4,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        REACT_APP_WEATHER_API_KEY: ${REACT_APP_WEATHER_API_KEY}
+        REACT_APP_LATITUDE: ${REACT_APP_LATITUDE}
+        REACT_APP_LONGITUDE: ${REACT_APP_LONGITUDE}
     image: second-screen:latest
     container_name: second-screen
     ports:
