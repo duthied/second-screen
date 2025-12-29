@@ -32,8 +32,18 @@
   align-items: center;
 }
 
+.flip-clock-period {
+  font-size: min(40px, 3vw);
+  color: #acaaaa;
+  font-weight: 300;
+  margin-left: 1vw;
+  align-self: center;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .flip-clock-date {
-  font-size: 20px;
+  font-size: 22px;
   color: #acaaaa;
   margin-top: 15px;
   font-family: 'Arial', sans-serif;

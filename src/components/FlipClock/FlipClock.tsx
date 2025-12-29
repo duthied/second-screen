@@ -6,7 +6,7 @@ import './FlipClock.css';
 
 const FlipClock: React.FC = () => {
   const time = useTime();
-  const { hours, minutes } = formatTime(time);
+  const { hours, minutes, period } = formatTime(time);
 
   const formatDate = (date: Date): string => {
     const options: Intl.DateTimeFormatOptions = {
@@ -30,6 +30,7 @@ const FlipClock: React.FC = () => {
           <FlipDigit value={minutes[0]} />
           <FlipDigit value={minutes[1]} />
         </div>
+        <div className="flip-clock-period">{period === 'AM' ? '☀️' : '🌙'}</div>
       </div>
       <div className="flip-clock-date">{formatDate(time)}</div>
     </div>
