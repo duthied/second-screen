@@ -33,7 +33,7 @@ function processForecast(forecastData: ForecastData): ForecastDay[] {
   });
 
   const forecastDays: ForecastDay[] = Object.values(dailyForecasts)
-    .slice(1, 4)
+    .slice(1, 6)
     .map((day: any) => ({
       date: day.date,
       dayName: day.dayName,
