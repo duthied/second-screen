@@ -20,6 +20,7 @@ const quotes = [
   { text: "No man ever steps in the same river twice, for it is not the same river and he is not the same man.", author: "Heraclitus" },
   { text: "The greatest glory in living lies not in never falling, but in rising every time we fall.", author: "Nelson Mandela" },
   { text: "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.", author: "Ralph Waldo Emerson" },
+  { text: "There is nothing either good or bad, but thinking makes it so", author: "William Shakespeare" },
 ];
 
 const FIVE_MINUTES = 5 * 60 * 1000;
