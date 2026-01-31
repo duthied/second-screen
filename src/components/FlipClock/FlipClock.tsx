@@ -18,6 +18,16 @@ const FlipClock: React.FC = () => {
     return date.toLocaleDateString('en-US', options);
   };
 
+  const formatPSTTime = (date: Date): string => {
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: 'America/Los_Angeles',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    };
+    return date.toLocaleTimeString('en-US', options);
+  };
+
   return (
     <div className="flip-clock-container">
       <div className="flip-clock">
@@ -32,6 +42,7 @@ const FlipClock: React.FC = () => {
         </div>
         <div className="flip-clock-period">{period === 'AM' ? '☀️' : '🌙'}</div>
       </div>
+      <div className="flip-clock-pst">{formatPSTTime(time)} PST</div>
       <div className="flip-clock-date">{formatDate(time)}</div>
     </div>
   );

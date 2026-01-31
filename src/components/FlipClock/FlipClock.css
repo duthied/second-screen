@@ -49,3 +49,11 @@
   font-family: 'JetBrains Mono', monospace;
   text-align: center;
 }
+
+.flip-clock-pst {
+  font-size: 42px;
+  color: #dce70d;
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+}
